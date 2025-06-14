@@ -94,14 +94,17 @@ Gelecekte kullanıcı deneyimini artırmak amacıyla;
 
 
 ## 9. Uygulamadan Ekran Görüntüleri
+![Desktop 2025-06-14 21-52-09-531](https://github.com/user-attachments/assets/bd8cc80a-aa4b-4d2f-9b0b-bb9442bbbfd8)
+![Desktop 2025-06-14 21-52-33-508](https://github.com/user-attachments/assets/f826d223-ce3e-4604-829a-f1fefde470a0)
+![Desktop 2025-06-14 22-06-52-266](https://github.com/user-attachments/assets/5d6f3947-071c-43d4-a8f4-183ae5fede8f)
+![Desktop 2025-06-14 21-53-28-469](https://github.com/user-attachments/assets/6601de32-a6fc-40a0-9afc-1d343d1822ee)
+![Desktop 2025-06-14 21-54-40-588](https://github.com/user-attachments/assets/bdb5696b-0ee6-4984-877c-08933c821080)
+![Desktop 2025-06-14 21-55-37-631](https://github.com/user-attachments/assets/ae88c4c0-723e-42df-8eb2-f2cf9555bc7a)
+![Desktop 2025-06-14 22-07-19-368](https://github.com/user-attachments/assets/dc870809-5f74-4b3a-826d-615d4f0f89c6)
+![Desktop 2025-06-14 22-07-40-540](https://github.com/user-attachments/assets/91df88e3-9220-40cb-a562-4f85958d9571)
 
 
-![Desktop 2025-06-14 21-55-37-631](https://github.com/user-attachments/assets/c515e1a5-a127-4e97-a555-fda38a69d68f)
-![Desktop 2025-06-14 21-54-40-588](https://github.com/user-attachments/assets/ed2f3c7e-ea51-4059-a6e7-d1dbac84f6e9)
-![Desktop 2025-06-14 21-53-28-469](https://github.com/user-attachments/assets/63c81432-bc1c-4c4b-817d-e8102e15f409)
-![Desktop 2025-06-14 21-52-33-508](https:![Desktop 2025-06-14 22-07-19-368](https://github.com/user-attachments/assets/2e8cb07a-e371-4f7e-9cda-25ae00734b6d)![Desktop 2025-06-14 22-07-40-540](https://github.com/user-attachments/assets/4ee67c73-5bd5-48f1-8c77-bf508aca7ac5)
-![Desktop 2025-06-14 22-06-52-266](https://github.com/user-attachments/assets/98510437-fc0b-4da3-9a8e-2221a2dbcfd6)
-user-attachments/assets/706de550-1527-4c30-b492-73c86a04ed13)
-![Desktop 2025-06-14 21-52-09-531](https://github.com/user-attachments/assets/239a4247-61bd-4b8f-90ac-eadc477e7321)
+
+
 
 
