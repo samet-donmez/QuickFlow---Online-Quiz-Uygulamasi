@@ -74,7 +74,7 @@ function setupSocket(io) {
   // }
 });
 
-    // Yeni: Quizi başlatma olayı
+    //  Quizi başlatma olayı
     socket.on('startQuiz', ({ sessionId }) => {
         const session = sessions[sessionId];
         if (!session) {
