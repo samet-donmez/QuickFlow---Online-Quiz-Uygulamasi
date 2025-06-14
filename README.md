@@ -93,8 +93,15 @@ Gelecekte kullanıcı deneyimini artırmak amacıyla;
 📺 [Uygulamanın YouTube Videosu](https://www.youtube.com/watch?v=LmCzYkE0kdg)
 
 
+## 9. Uygulamadan Ekran Görüntüleri
 
-![Desktop 2025-06-14 22-07-19-368](https://github.com/user-attachments/assets/3ba0e029-6227-41fb-828f-3ddfd237ac27)
 
+![Desktop 2025-06-14 21-55-37-631](https://github.com/user-attachments/assets/c515e1a5-a127-4e97-a555-fda38a69d68f)
+![Desktop 2025-06-14 21-54-40-588](https://github.com/user-attachments/assets/ed2f3c7e-ea51-4059-a6e7-d1dbac84f6e9)
+![Desktop 2025-06-14 21-53-28-469](https://github.com/user-attachments/assets/63c81432-bc1c-4c4b-817d-e8102e15f409)
+![Desktop 2025-06-14 21-52-33-508](https:![Desktop 2025-06-14 22-07-19-368](https://github.com/user-attachments/assets/2e8cb07a-e371-4f7e-9cda-25ae00734b6d)![Desktop 2025-06-14 22-07-40-540](https://github.com/user-attachments/assets/4ee67c73-5bd5-48f1-8c77-bf508aca7ac5)
+![Desktop 2025-06-14 22-06-52-266](https://github.com/user-attachments/assets/98510437-fc0b-4da3-9a8e-2221a2dbcfd6)
+user-attachments/assets/706de550-1527-4c30-b492-73c86a04ed13)
+![Desktop 2025-06-14 21-52-09-531](https://github.com/user-attachments/assets/239a4247-61bd-4b8f-90ac-eadc477e7321)
 
 
