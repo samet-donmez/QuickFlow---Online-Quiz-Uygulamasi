@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="d-flex flex-column min-vh-100">
+
+    {{> header }}
+
+    <main class="container mt-4 flex-grow-1">
+        {{#if user}}
+            <div class="text-center">
+                <h1>Hoş Geldiniz, {{user.name}}!</h1>
+                <p class="lead">Rolünüz: <strong>{{user.role}}</strong></p>
+            </div>
+
+            {{#if (eq user.role "instructor")}}
+                <div class="text-center mt-4">
+                    <a href="/quizolustur" class="btn btn-primary me-2">
+                        <i class="bi bi-pencil-square"></i> Quiz Hazırla
+                    </a>
+                    <a href="/quiz" class="btn btn-success">
+                        <i class="bi bi-play-circle"></i> Quiz Çöz
+                    </a>
+                </div>
+
+                <section class="mt-5">
+    <h4>İpuçları ve Öneriler</h4>
+    <ul>
+        <li>🧩 Kısa ama etkili sorular hazırlayın. Öğrencilerin ilgisini kaybetmemesi için soruları sade tutun.</li>
+        <li>📅 Haftalık quiz planları yaparak öğrencilerde düzenli çalışma alışkanlığı oluşturabilirsiniz.</li>
+        <li>👀 Soruların karışık sıralanmasını etkinleştirerek kopya riskini azaltabilirsiniz.</li>
+        <li>📈 Sonuçlara göre ek materyaller önererek öğrencilerin eksiklerini kapatmasına yardımcı olun.</li>
+    </ul>
+</section>
+
+
+                <section class="mt-4">
+                    <h5>İpuçları</h5>
+                    <p>Quiz hazırlarken soruları kategorilere ayırarak öğrencilere odaklanma kolaylığı sağlayabilirsiniz.</p>
+                </section>
+            {{/if}}
+
+            {{#if (eq user.role "student")}}
+                <div class="text-center mt-4">
+                    <a href="/quiz" class="btn btn-success">
+                        <i class="bi bi-play-circle"></i> Quiz Çöz
+                    </a>
+                </div>
+
+                <section class="mt-5">
+                    <h4>Bilgilendirme</h4>
+                    <ul>
+                        <li>🧠 Yeni quizler eklendi, bilginizi test edin!</li>
+                        <li>📈 Geçmiş sonuçlarınıza erişin ve gelişiminizi takip edin.</li>
+                        <li>🏆 En iyi puanı alanlarla sıralamaya girin.</li>
+                    </ul>
+                </section>
+
+                <section class="mt-4">
+                    <h5>İpucu</h5>
+                    <p>Quiz çözmeden önce konulara kısa bir tekrar yapmak başarınızı artırabilir.</p>
+                </section>
+            {{/if}}
+
+        {{else}}
+            <div class="text-center">
+                <h1>QuizFlow'a Hoş Geldiniz!</h1>
+                <p class="lead">Bilgi yarışmalarıyla dolu interaktif bir öğrenme ortamına adım atın.</p>
+            </div>
+
+            <section class="row mt-5 text-center">
+                <div class="col-md-6 mb-4">
+                    <i class="bi bi-lightbulb display-4 text-warning"></i>
+                    <h5 class="mt-2">Bilgiyi Eğlenceyle Birleştir</h5>
+                    <p>Klasik öğrenme yöntemlerinden sıkıldıysan, quizlerle öğrenmek tam sana göre!</p>
+                </div>
+               
+                <div class="col-md-6 mb-4">
+                    <i class="bi bi-people display-4 text-success"></i>
+                    <h5 class="mt-2">Topluluğa Katıl</h5>
+                    <p>Arkadaşlarınla yarış, puanını paylaş ve liderlik tablosuna adını yazdır.</p>
+                </div>
+            </section>
+
+            <section class="mt-4">
+                <h4>Neden QuizFlow?</h4>
+                <ul>
+                    <li>✅ Öğretmenler için kolay quiz hazırlama</li>
+                    <li>✅ Öğrenciler için motivasyon artırıcı ortam</li>
+                    <li>✅ Gerçek zamanlı sonuçlar</li>
+                </ul>
+            </section>
+        {{/if}}
+    </main>
+
+    {{> footer }}
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+{{#if user}}
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  const socket = io();
+  socket.on('connect', () => {
+    console.log("Socket.io bağlı. ID:", socket.id);
+  });
+</script>
+{{/if}}
+
+</body>
+</html>

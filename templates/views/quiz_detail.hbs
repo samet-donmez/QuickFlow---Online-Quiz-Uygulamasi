@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{title}}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="d-flex flex-column min-vh-100">
+    {{> header }}
+
+    <main class="container mt-4 flex-grow-1">
+      <h2>{{quiz.title}}</h2>
+
+      {{#if user}}
+        {{#if (eq user.role "instructor")}}
+          <button id="startQuizBtn" class="btn btn-primary mb-3">Quizi Başlat</button>
+        {{/if}}
+      {{/if}}
+
+      <div id="questionContainer" class="my-4" style="display: none;">
+        <p id="questionText"></p>
+        <div id="options"></div>
+        <button id="submitAnswerBtn" class="btn btn-success mt-3">Cevapla</button>
+      </div>
+
+      <div class="my-3">
+        <strong>Kalan Süre: </strong><span id="countdown"></span> saniye
+      </div>
+
+      <div class="my-4">
+        <h4 id="playerListTitle">Oyuncular:</h4>
+        <ul id="playerList" class="list-group"></ul>
+      </div>
+
+      <div id="scoreBoard" class="my-4" style="display: none;">
+        <h4>Skor Durumu:</h4>
+        <ul id="scoreList" class="list-group"></ul>
+      </div>
+    </main>
+
+    {{> footer }}
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+    const quizId = {{quiz.id}};
+    const playerName = "{{user.name}}";
+    const sessionId = 'quiz-' + quizId;
+
+    const startQuizBtn = document.getElementById('startQuizBtn');
+    const questionContainer = document.getElementById('questionContainer');
+    const scoreBoard = document.getElementById('scoreBoard');
+    const playerList = document.getElementById('playerList');
+    const playerListTitle = document.getElementById('playerListTitle');
+    const questionText = document.getElementById('questionText');
+    const optionsDiv = document.getElementById('options');
+    const countdownSpan = document.getElementById('countdown');
+    const submitAnswerBtn = document.getElementById('submitAnswerBtn');
+    const scoreList = document.getElementById('scoreList');
+
+    if (startQuizBtn) {
+      startQuizBtn.addEventListener('click', () => {
+        socket.emit('startQuiz', { sessionId });
+      });
+    }
+
+    socket.emit('joinQuiz', { sessionId, playerName, quizId });
+
+    socket.on('playerList', (players) => {
+      playerList.innerHTML = '';
+      Object.values(players).forEach(p => {
+        const item = document.createElement('li');
+        item.className = 'list-group-item';
+        item.textContent = `${p.name} - ${p.score} puan`;
+        playerList.appendChild(item);
+      });
+
+      playerList.style.display = 'block';
+      playerListTitle.style.display = 'block';
+      scoreBoard.style.display = 'none';
+    });
+
+    socket.on('quizStartedConfirmation', () => {
+      if (startQuizBtn) startQuizBtn.style.display = 'none';
+    });
+
+    socket.on('newQuestion', (question) => {
+      questionContainer.style.display = 'block';
+      questionText.textContent = question.text;
+      optionsDiv.innerHTML = '';
+
+      const existingRadios = document.querySelectorAll('input[name="option"]');
+      existingRadios.forEach(radio => radio.checked = false);
+
+      for (let i = 1; i <= 4; i++) {
+        const option = question['option' + i];
+        const radio = document.createElement('input');
+        radio.type = 'radio';
+        radio.name = 'option';
+        radio.value = i;
+        radio.id = 'opt' + i;
+
+        const label = document.createElement('label');
+        label.setAttribute('for', 'opt' + i);
+        label.textContent = option;
+        label.className = 'ms-2 me-4';
+
+        optionsDiv.appendChild(radio);
+        optionsDiv.appendChild(label);
+        optionsDiv.appendChild(document.createElement('br'));
+      }
+
+      scoreBoard.style.display = 'none';
+      playerList.style.display = 'block';
+      playerListTitle.style.display = 'block';
+    });
+
+    submitAnswerBtn.addEventListener('click', () => {
+      const selected = document.querySelector('input[name="option"]:checked');
+      if (selected) {
+        socket.emit('submitAnswer', { sessionId, selectedOption: parseInt(selected.value) });
+      }
+    });
+
+    socket.on('countdown', (saniye) => {
+      countdownSpan.textContent = saniye;
+      scoreBoard.style.display = 'none';
+      playerList.style.display = 'block';
+    });
+
+    socket.on('scoreUpdate', (players) => {
+      playerList.innerHTML = '';
+      Object.values(players).forEach(p => {
+        const item = document.createElement('li');
+        item.className = 'list-group-item';
+        item.textContent = `${p.name} - ${p.score} puan`;
+        playerList.appendChild(item);
+      });
+
+      scoreBoard.style.display = 'none';
+      playerList.style.display = 'block';
+    });
+
+    socket.on('showScores', (players) => {
+      const sortedPlayers = Object.values(players).sort((a, b) => b.score - a.score);
+      scoreList.innerHTML = '';
+      sortedPlayers.forEach((p, index) => {
+        const item = document.createElement('li');
+        item.className = 'list-group-item';
+        item.textContent = `${index + 1}. ${p.name} - ${p.score} puan`;
+        scoreList.appendChild(item);
+      });
+
+      scoreBoard.style.display = 'block';
+      questionContainer.style.display = 'none';
+      playerList.style.display = 'none';
+      playerListTitle.style.display = 'none';
+    });
+
+    socket.on('quizEnded', () => {
+      alert("Quiz sona erdi!");
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="d-flex flex-column min-vh-100">
+
+        {{> header }}
+
+      <main class="container mt-4 flex-grow-1">
+  <h2 class="mb-4">Quiz Listesi</h2>
+
+  {{#if user}}
+    {{#if quizzes.length}}
+      <ul class="list-group">
+        {{#each quizzes}}
+          <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center mb-2 rounded">
+            <a href="/quiz/{{this.id}}" class="fw-semibold text-primary text-decoration-none">
+              {{this.title}}
+            </a>
+            <small class="text-muted">{{this.created_at}}</small>
+          </li>
+        {{/each}}
+      </ul>
+    {{else}}
+      <p>Henüz quiz yok.</p>
+    {{/if}}
+  {{else}}
+    <div class="alert alert-warning">
+      Quizlere erişmek için <a href="/login">giriş yapmanız </a>gerekmektedir.
+    </div>
+  {{/if}}
+</main>
+
+
+
+        {{> footer }}
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/">QuizFlow</a>
+
+    <!-- Geniş ekranda göster, küçük ekranda gizle -->
+    <div class="d-flex align-items-center ms-3">
+      {{#if user}}
+        <a href="/logout" class="btn btn-outline-danger me-2">Çıkış Yap</a>
+      {{else}}
+        <a href="/login" class="btn btn-outline-primary me-2">Giriş Yap</a>
+        <a href="/register" class="btn btn-outline-success">Kayıt Ol</a>
+      {{/if}}
+    </div>
+
+    <!-- Burger butonu -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menü içeriği -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/">Anasayfa</a></li>
+        <li class="nav-item"><a class="nav-link" href="/hakkinda">Hakkında</a></li>
+        <li class="nav-item"><a class="nav-link" href="/yardim">Yardım</a></li>
+        <li class="nav-item"><a class="nav-link" href="/quiz">Quizler</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
