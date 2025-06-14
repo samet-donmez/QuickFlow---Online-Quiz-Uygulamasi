@@ -91,3 +91,10 @@ Gelecekte kullanıcı deneyimini artırmak amacıyla;
 
 ## 9. Demo Videosu  
 📺 [Uygulamanın YouTube Videosu](https://www.youtube.com/watch?v=LmCzYkE0kdg)
+
+
+
+![Desktop 2025-06-14 22-07-19-368](https://github.com/user-attachments/assets/3ba0e029-6227-41fb-828f-3ddfd237ac27)
+
+
+
