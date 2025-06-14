@@ -4,7 +4,7 @@ const db = require('../db/connection');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-const JWT_SECRET = 'gizli_kelime'; // Bunu .env dosyasına taşımalısın!
+const JWT_SECRET = 'gizli_kelime'; 
 
 // Kayıt
 router.post('/register', async (req, res) => {
