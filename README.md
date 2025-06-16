@@ -1,4 +1,4 @@
-# QuickFlow — Online Quiz Uygulaması
+# QuizFlow — Online Quiz Uygulaması
 
 ## 1. Giriş
 
